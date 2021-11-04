@@ -18,9 +18,9 @@ function gdrive_prepare () {
 		exit 1
 	fi
 	id="$(echo "$1" | cut -d'/' -f6)"
-	confirm=$(wget --quiet --save-cookies "$cookies_path" --keep-session-cookies --no-check-certificate "https://docs.google.com/uc?export=download&id=$id" -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')
+	confirm=$(wget --quiet --save-cookies "$cookies_path" --keep-session-cookies --no-check-certificate "https://drive.google.com/uc?export=download&id=$id" -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')
 
-	link="https://docs.google.com/uc?export=download&confirm=$confirm&id=$id"
+	link="https://drive.google.com/uc?export=download&confirm=$confirm&id=$id"
 	out=gdrive.zip
 }
 
